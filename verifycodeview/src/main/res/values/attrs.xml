@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VerifyCodeView">
+
+        <attr name="count" format="integer"/>
+        <attr name="textSize" format="integer"/>
+        <attr name="itemWidth" format="integer"/>
+        <attr name="itemHeight" format="integer"/>
+
+    </declare-styleable>
+
+</resources>
