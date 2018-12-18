@@ -7,6 +7,8 @@
         <attr name="textSize" format="integer"/>
         <attr name="itemWidth" format="integer"/>
         <attr name="itemHeight" format="integer"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="textColor" format="color"/>
 
     </declare-styleable>
 

@@ -11,6 +11,8 @@
         android:id="@+id/verifyCodeView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        app:lineColor="#f000df"
+        app:textColor="#000fff"
       />
 
 

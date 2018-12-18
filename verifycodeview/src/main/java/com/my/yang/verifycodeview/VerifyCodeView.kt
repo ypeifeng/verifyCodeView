@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -40,6 +39,8 @@ class VerifyCodeView @JvmOverloads constructor(context: Context, attrs: Attribut
         var textSize = ta.getInteger(R.styleable.VerifyCodeView_textSize, 20)
         var itemHeight = ta.getInteger(R.styleable.VerifyCodeView_itemHeight, 48)
         var itemWidth = ta.getInteger(R.styleable.VerifyCodeView_itemWidth,41)
+        var lineColor = ta.getColor(R.styleable.VerifyCodeView_lineColor,Color.parseColor("#000000"))
+        var textColor = ta.getColor(R.styleable.VerifyCodeView_textColor,Color.parseColor("#000000"))
 
         textViews = arrayOfNulls<TextView?>(count)
 
@@ -51,20 +52,21 @@ class VerifyCodeView @JvmOverloads constructor(context: Context, attrs: Attribut
 
             var rlItemRoot = RelativeLayout(context)
             rlItemRoot.layoutParams = layoutParams
-            rlItemRoot.gravity = Gravity.CENTER_HORIZONTAL
 
             var tvLayoutParams = RelativeLayout.LayoutParams((itemWidth*screenDensity).toInt(),(itemHeight*screenDensity).toInt())
+            tvLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT)
             var textView = TextView(context)
             textView.layoutParams = tvLayoutParams
-            textView.setTextColor(Color.parseColor("#000000"))
+            textView.setTextColor(textColor)
             textView.textSize =textSize.toFloat()
             textView.gravity = Gravity.CENTER
 
-            var imgLayoutParams = RelativeLayout.LayoutParams((itemWidth*screenDensity).toInt(),RelativeLayout.LayoutParams.WRAP_CONTENT)
-            var line = ImageView(context)
-            imgLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-            line.layoutParams = imgLayoutParams
-            line.setImageDrawable(context.resources.getDrawable(R.drawable.verify_code_bg))
+            var lineLayoutParams = RelativeLayout.LayoutParams((itemWidth*screenDensity).toInt(),(1*screenDensity).toInt())
+            var line = View(context)
+            lineLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+            lineLayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL)
+            line.layoutParams = lineLayoutParams
+            line.setBackgroundColor(lineColor)
 
             rlItemRoot.addView(textView)
             textViews[i] = textView
