@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -22,6 +23,16 @@ android {
         }
     }
 
+}
+
+publish {
+    repoName = "maven"  /*指定仓库名称，当传入maven时，无需设置，可查看相关类信息*/
+    userOrg = 'ypeifeng'       /*bintray账户名*/
+    groupId = 'com.ypf'  /*组名，等同与公司名*/
+    artifactId = 'verifyCodeView' /*上传moudle的名称*/
+    publishVersion = '1.0.0' /*版本号*/
+    desc = 'this is a verifyCodeView'    /*描述*/
+    website = 'https://github.com/ypeifeng/verifyCodeView.git'    /*moudle的链接*/
 }
 
 dependencies {
